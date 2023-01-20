@@ -7,5 +7,5 @@ import envKor from '../config/envKor';
 
 const app = new cdk.App();
 
-new InfraCicdStack(app, 'InfraCicd', { env: envKor });
-//new MainStack(app, 'chan', { env: envKor, stackName: 'PrjoectM' });
+//new InfraCicdStack(app, 'InfraCicd', { env: envKor });
+new MainStack(app, 'projectM', { env: envKor, stackName: 'ProjectM' });

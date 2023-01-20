@@ -45,14 +45,8 @@ export class RdsConstructStack extends Stack{
       allowAllOutbound: true,
     });
 
-    rdsSecurityGroup.addIngressRule(ec2.Peer.ipv4(props.vpc.vpcCidrBlock), ec2.Port.tcp(props.port));
+    rdsSecurityGroup.addIngressRule(ec2.Peer.ipv4(vpc.vpcCidrBlock), ec2.Port.tcp(props.port));
 
-    /*
-    vpc.isolatedSubnets.forEach( (subnet) =>{
-      rdsSecurityGroup.addIngressRule(ec2.Peer.ipv4(subnet.ipv4CidrBlock), ec2.Port.tcp(props.port));
-    })
-    */
-   
     const db = new rds.DatabaseInstance(this, 'RdsInstance', {
       databaseName: props.dbName,
       vpc,

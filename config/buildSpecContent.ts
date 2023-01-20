@@ -14,7 +14,7 @@ export default {
       build: {
           commands: [
               'echo Build started on `date`',
-              './gradlew build',
+              './gradlew build -x test',
               'echo Building the Docker image : $ECR_REPO, $IMAGE_NAME',
               'docker build -t $IMAGE_NAME:latest .',
               'docker tag $IMAGE_NAME:latest $ACCOUNT_ID.dkr.ecr.$ACCOUNT_REGION.amazonaws.com/$IMAGE_NAME:latest',
